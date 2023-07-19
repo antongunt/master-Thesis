@@ -1,33 +1,19 @@
-\cleardoublepage
-\chapter*{Acronyms}
-\mtcaddchapter\addstarredchapter{Acronyms}
-\markboth{Acronyms}{Acronyms}
-\stepcounter{chapter}
-\renewcommand*{\chapterthumbformat}{Acronyms}
-\printacronyms[name={}, exclude=exclude]
-
-\cleardoublepage
-\stepcounter{chapter}
-\renewcommand{\glossaryname}{Glossary}
-\markboth{\glossaryname}{\glossaryname}
-\renewcommand*{\chapterthumbformat}{\glossaryname}
-\printglossary%
+%\cleardoublepage
+%\stepcounter{chapter}
+%\renewcommand{\glossaryname}{Glossary}
+%\markboth{\glossaryname}{\glossaryname}
+%\renewcommand*{\chapterthumbformat}{\glossaryname}
+%\printglossary%
 
 \cleardoublepage
 \chapter*{Bibliography}
 \mtcaddchapter\addstarredchapter{Bibliography}
 \markboth{Bibliography}{Bibliography}
 \stepcounter{chapter}
-\renewcommand*{\chapterthumbformat}{Bibliography}
-\minitoc\vspace{.5cm}
-
-\section*{List of Author's Publications Covered in this Thesis}
-\nocite{li2002design}
-\newrefcontext[labelprefix=a]
-\printbibliography[keyword=own,heading=empty,category=cited]
+%\renewcommand*{\chapterthumbformat}{Bibliography}
+%\minitoc\vspace{.5cm}
 
 
-\section*{References to Scientific Publications}
 \defbibfilter{papers}{
   type=article
   or type=inproceedings
@@ -44,16 +30,22 @@
   and not keyword=ANSI
   and not keyword=OGF
   and not keyword=web
+   and not keyword=online
   and not keyword=presentation
   and not keyword=workingpaper
 }
 \newrefcontext[labelprefix=p]
-\printbibliography[filter=papers,heading=empty,category=cited,notkeyword=own]
-
-
-\section*{Technical References}
-
-\defbibfilter{standards}{
+\printbibliography[filter=papers,heading=subbibliography,category=cited,title={References to Scientific Publications}]
+%---
+\defbibfilter{online}{
+  type=online
+  or type=web
+  or type=www
+}
+\newrefcontext[labelprefix=o]
+\printbibliography[filter=online,heading=subbibliography,category=cited,title={Online References}]
+%---
+\defbibfilter{standard}{
   type=techreport
   or type=report
   or keyword=W3C
@@ -77,25 +69,22 @@
   or keyword=techreport
   or keyword=whitepaper
   and not keyword=web
+  and not keyword=online
   and not keyword=presentation
   and not keyword=workingpaper
 }
 \newrefcontext[labelprefix=t]
-\printbibliography[filter=standards,heading=empty,category=cited,notkeyword=own]
-
-
-\section*{Miscellaneous References}
+\printbibliography[heading=subbibliography,filter=standard,category=cited,title={Technical References}]
+%------------------
 \defbibfilter{misc}{
   keyword=web
   or keyword=presentation
   or keyword=workingpaper
 }
 \newrefcontext[labelprefix=m]
-\printbibliography[filter=misc,heading=empty,category=cited,notkeyword=own]
+\printbibliography[heading=subbibliography,filter=misc,category=cited,title={Miscellaneous References}]
 
-
-\section*{Not referenced (will be empty)}
-\todo{this section should be empty at the end}
+%------
 \nocite{*}
 \newrefcontext[labelprefix=x]
-\printbibliography[heading=empty,notcategory=cited,notkeyword=own]
+\printbibliography[heading=subbibliography,notcategory=cited,title={Not referenced (will be empty)}]

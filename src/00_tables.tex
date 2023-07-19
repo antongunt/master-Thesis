@@ -1,4 +1,5 @@
 % Change the depth for review
+\singlespacing
 \pdfbookmark{Table of Contents}{toc}
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
@@ -7,12 +8,29 @@
 \phantomsection\addstarredchapter{\listfigurename}
 \listoffigures
 
-\cleardoublepage
-\phantomsection\addstarredchapter{\lstlistlistingname}
-\lstlistoflistings
+%\cleardoublepage
+%\phantomsection\addstarredchapter{\lstlistlistingname}
+%\lstlistoflistings
 
 \cleardoublepage
 \phantomsection\addstarredchapter{\listtablename}
 \listoftables
 
+%\cleardoublepage
+%\phantomsection\addstarredchapter{\abbrevname}
+%\input{00_abbreviations}
+
 \cleardoublepage
+
+\mtcaddchapter\addstarredchapter{List of Acronyms}
+\markboth{List of Acronyms}{List of Acronyms}
+%\renewcommand*{\chapterthumbformat}{List of Acronyms}
+\begingroup
+\let
+\newpage
+\relax
+\printacronyms[exclude=exclude, template = longtable, preamble = {A list of all abbreviations used in this document with a reference to the pages , where used.}]
+\endgroup
+\onehalfspacing
+
+
