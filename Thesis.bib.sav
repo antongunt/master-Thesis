@@ -62,13 +62,13 @@
   year          = {2008},
 }
 
-@Article{vinx15,
+@Book{vinx15,
   author        = {R. Vinx},
   title         = {Gesteinsbestimmung im Gel{\"a}nde},
+  publisher     = {Springer Spektrum},
   date-added    = {2021-12-20 12:01:08 +0100},
   date-modified = {2021-12-20 12:01:48 +0100},
   groups        = {Protokolle Bachelor},
-  publisher     = {Springer Spektrum},
   year          = {2015},
 }
 
