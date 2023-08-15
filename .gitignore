@@ -1,5 +1,5 @@
 tmp
-thesis_template.pdf
+*.pdf
 *.acn
 *.acr
 *.alg
@@ -46,4 +46,4 @@ thesis_template.pdf
 *blx.bib
 .bak 
 _build/
-lib/
+
